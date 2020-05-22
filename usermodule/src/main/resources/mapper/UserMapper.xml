@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hk.zcb.userModule.dao.mapper.UserMapper"><!--填写上对应的mapper类-->
+    <resultMap id="UserInfo" type="User"><!--自定义返回类型-->
+        <result column="ADMIN_NAME" property="adminName"/><!--数据库列名column，User类属性名property-->
+        <result column="PASSWORD" property="password"/>
+        <result column="NAME" property="name"/>
+        <result column="ADD_TIME" property="addTime"/>
+        <result column="MANAGER" property="manager"/>
+    </resultMap>
+    <sql id="user_info">ADMIN_NAME,PASSWORD,NAME,ADD_TIME,MANAGER</sql><!--可重复调用SQL-->
+    <select id="getUserByUserName" resultMap="UserInfo">/*id对应mapper中的方法 resultMap对应返回的类型*/
+        SELECT
+        <include refid="user_info"></include>
+        FROM
+        ADMINISTRATOR_INFO
+        WHERE
+        ADMIN_NAME= #{adminName}
+    </select>
+</mapper>
