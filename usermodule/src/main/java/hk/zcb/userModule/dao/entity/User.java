@@ -1,6 +1,8 @@
 package hk.zcb.userModule.dao.entity;
 
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.Serializable;
 import java.util.Objects;
 public class User implements Serializable {
@@ -21,7 +23,15 @@ public class User implements Serializable {
                 ", manager=" + manager +
                 '}';
     }
-
+    public String toJsonString() {
+        JSONObject me=new JSONObject();
+        me.put(adminName,adminName);
+        me.put(password,password);
+        me.put(name,name);
+        me.put(addTime,addTime);
+        me.put("manager",manager);
+        return me.toJSONString();
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
