@@ -8,6 +8,7 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <packaging>war</packaging>
     <groupId>hk.zcb</groupId>
     <artifactId>usermodule</artifactId>
     <version>0.0.1-SNAPSHOT</version>
